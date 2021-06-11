@@ -26,7 +26,6 @@ class Solution:
 
 
 if __name__ == '__main__':
-    #print('hello world')
     sol = Solution()
     n = 2
     ans = 2
