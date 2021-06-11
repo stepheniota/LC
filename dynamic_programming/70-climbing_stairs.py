@@ -18,7 +18,6 @@ class Solution:
 
         # recursion relation: opt[i] = opt[i-1] + opt[i-2]
         for i in range(2,n+1):
-            print(i)
             opt[i] = opt[i-1] + opt[i-2]
 
         # the answer is stored in the last element
