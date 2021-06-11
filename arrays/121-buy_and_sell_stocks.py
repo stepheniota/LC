@@ -7,7 +7,7 @@ a different day in the future to sell that stock.
 Return the maximum profit you can achieve from this transaction. 
 If you cannot achieve any profit, return 0.
 '''
-# tags: arrays, dynamic programming (maybe)
+# tags: arrays
 
 from typing import List
 
@@ -22,8 +22,8 @@ class Solution:
             elif prices[right] < prices[left]:
                 left = right
             right += 1
-        return max_profit
 
+        return max_profit
 
 
 
