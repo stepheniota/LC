@@ -7,15 +7,12 @@ and the nodes have the same value.
 '''
 # tags: trees
 
-class TreeNode:
-    ''' Def for a binary tree node'''
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from trees import TreeNode
 
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        # idea: recursive dfs search
+        # base case: one or both nodes are None i.e. previous nodes were actually leaves
 
         def dfs(p: TreeNode, q: TreeNode) -> bool:
             if p == None and q == None:
