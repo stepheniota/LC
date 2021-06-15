@@ -13,15 +13,23 @@ class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
         # idea: recursive dfs search
         # base case: one or both nodes are None i.e. previous nodes were actually leaves
-
-        def dfs(p: TreeNode, q: TreeNode) -> bool:
-            if p == None and q == None:
-                return True
-            if p == None or q == None:
-                return False
-            if p.val == q.val:
-                return dfs(p.left, q.left) and dfs(p.right, q.right)
+        if not p and not q:
+            return True
+        if not p or not q or p.val != q.val:
             return False
-
-        return dfs(p, q)
+        
+        return (
+            self.isSameTree(p.left, q.left) and 
+            self.isSameTree(p.right, q.right)
+        )
+        ## Original solution lol
+        #def dfs(p: TreeNode, q: TreeNode) -> bool:
+        #    if p == None and q == None:
+        #        return True
+        #    if p == None or q == None:
+        #        return False
+        #    if p.val == q.val:
+        #        return dfs(p.left, q.left) and dfs(p.right, q.right)
+        #    return False
+        #return dfs(p, q)
 
