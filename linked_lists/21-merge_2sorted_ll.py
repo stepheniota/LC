@@ -3,6 +3,8 @@ leetcode 21 - merge two sorted linked lists
 Merge two sorted linked lists and return it as a sorted list.
 The list should be made by splicing together the nodes of the first two lists.
 '''
+from linked_list import ListNode
+
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         head = ListNode()
