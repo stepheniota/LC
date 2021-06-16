@@ -15,19 +15,22 @@ from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        # Let opt[i] be the optimal solution for robbing the first i houses in nums
-        opt = [0 for i, _ in enumerate(nums)]
+        # let opt[i] be optimal value for first i houses
+        # base: opt[0] = nums[0]
+        # recurrence: opt[i] = max(opt[i-2] + nums[i], opt[i-1])
+        if len(nums) == 1:
+            return nums[0]
 
-        # the recurrence relation opt[i] = max(opt[i-1], nums[i] + opt[i-2])
+        one, two = nums[0], max(nums[0], nums[1])
+        curr = two
+
         for i, val in enumerate(nums):
-            if i == 0:
-                opt[i] = val
-            elif i == 1:
-                opt[i] = max(val, opt[i - 1])
-            else:
-                opt[i] = max(opt[i - 1], val + opt[i - 2] )
+            if i == 0 or i == 1:
+                continue
+            curr = max(two, one + val)
+            two, one = curr, two
 
-        return opt[len(nums) - 1]
+        return curr
 
 
 if __name__ == '__main__':
