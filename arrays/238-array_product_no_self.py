@@ -9,31 +9,28 @@ guaranteed to fit in a 32-bit integer.
 You must write an algorithm that runs in O(n) time 
 and without using the division operation.
 '''
-# tags: arrays
 from typing import List
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        # opt[i] = prefix[i] * postfix[i]
-        # prefix[i] = prefix[i - 2] * nums[i - 1]; base prefix[0] = 1
-        # postfix[i]  = postfix[i + 2] * nums[i + 1]
-        # opt[i] = prefix[i - 2] * nums[i - 1] * postfix[i + 2] * nums[i + 1]
         n = len(nums)
-        prefix = [1] * n
-        postfix = [1] * n
-        opt = [1] * n
-
+        # idea: ans[i] = prefix[i] * suffix[i]
+        # two passes to calculate each
+        ans = [1] * n
+        
+        # calculate prefix for each nums[i]
+        curr = nums[0]
         for i in range(1, n):
-            prefix[i] = prefix[i - 1] * nums[i - 1]
+            ans[i] = curr
+            curr *= nums[i]
         
-        for i in range(n - 2, -1, -1):
-            postfix[i] = postfix[i + 1] * nums[i + 1]
-
-        for i, vals in enumerate(zip(prefix, postfix)):
-            opt[i] = vals[0] * vals[1]
-        
-        return opt
-
+        # calculate suffix for each num, and multiply by prefix
+        curr = nums[-1]
+        for i in range(n - 2, -1 , -1):
+            ans[i] *= curr
+            curr *= nums[i]
+            
+        return ans
 
 if __name__ == '__main__':
     sol = Solution()
