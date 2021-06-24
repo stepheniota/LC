@@ -7,24 +7,18 @@ a different day in the future to sell that stock.
 Return the maximum profit you can achieve from this transaction. 
 If you cannot achieve any profit, return 0.
 '''
-# tags: arrays
-
 from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        left, right = 0, 1
+        curr_min = prices[0]
         max_profit = 0
-
-        while right < len(prices):
-            if prices[right] - prices[left] > max_profit:
-                max_profit = prices[right] - prices[left]
-            elif prices[right] < prices[left]:
-                left = right
-            right += 1
-
+        
+        for p in prices:
+            curr_min = min(curr_min, p)
+            max_profit = max(max_profit, p - curr_min)
+        
         return max_profit
-
 
 
 if __name__ == '__main__':
