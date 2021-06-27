@@ -10,16 +10,20 @@ from typing import List
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        n = amount + 1
-        opt = [n] * (n)
+        # let opt[i] be min num coins needed for amount i in range [0, amount]
+        # opt[i] = min_{coin} (1 + opt[i - coin]) for all coin in coins if coin <= amount
+        # otherwise default val amount + 1 if no solution
+        opt = [amount + 1] * (amount + 1)
         opt[0] = 0
 
-        for i in range(1, n):
-            for coin in coins:
-                if i - c >= 0:
+        for i in range(1, amount + 1):
+            for c in coins:
+                if c <= i:
                     opt[i] = min(opt[i], 1 + opt[i - c])
 
-        return opt[n - 1] if opt[n - 1] != n else -1
+        return opt[amount] if opt[amount] != amount + 1 else -1
+
+
 
 
 if __name__ == '__main__':
