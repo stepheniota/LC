@@ -26,7 +26,7 @@ class Solution:
 
             left, right = i + 1, len(nums) - 1
             while left < right:
-                three_sum = nums[left] + nums[right]
+                three_sum = nums[left] + nums[right] + a
                 if three_sum  == 0:
                     out.append([a, nums[left], nums[right]])
                     left += 1
