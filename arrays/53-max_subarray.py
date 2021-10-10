@@ -1,10 +1,9 @@
-'''
-leetcode 53 - maximun subarray
+""" leetcode 53 - maximum subarray
 
-Given an integer array nums, find the contiguous subarray(containing at least one number)
-which has the largest sum and return its sum.
-'''
-# tags: arrays
+    Given an integer array nums, find the contiguous subarray
+    (containing at least one number)
+    which has the largest sum and return its sum.
+"""
 from typing import List
 
 class Solution:

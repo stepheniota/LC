@@ -1,10 +1,9 @@
-'''
-leetcode 217 - contains duplicate
+""" leetcode 217 - contains duplicate
 
-Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
-'''
-# tags: arrays
-
+    Given an integer array nums, return true if 
+    any value appears at least twice in the array, 
+    and return false if every element is distinct.
+"""
 from typing import List
 
 class Solution:

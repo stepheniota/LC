@@ -1,7 +1,6 @@
-'''
-leetcode 198 - rotate array
-Given an array, rotate the array to the right by k steps, where k is non-negative.
-'''
+""" leetcode 198 - rotate array
+    Given an array, rotate the array to the right by k steps, where k is non-negative.
+"""
 from typing import List
 
 class Solution:
