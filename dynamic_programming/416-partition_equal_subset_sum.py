@@ -1,15 +1,14 @@
-'''
-leetcode 416 - Partition equal subset sum
-Given a non-empty array nums containing only positive integers, 
-find if the array can be partitioned into two subsets such that 
-the sum of elements in both subsets is equal.
-'''
+""" leetcode 416 - Partition equal subset sum
 
+    Given a non-empty array nums containing only positive integers, 
+    find if the array can be partitioned into two subsets such that 
+    the sum of elements in both subsets is equal.
+"""
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
-        '''knapsack problem with weight sum(nums) / 2
-           pseudopolynomial space and time complexity
-        '''
+        """ knapsack problem with weight sum(nums) / 2
+                pseudopolynomial space and time complexity
+        """
         subset_sum = sum(nums) / 2
         if subset_sum % 1 != 0:
             return False
