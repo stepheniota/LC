@@ -9,8 +9,8 @@ class Solution:
     def climbStairs(self, n: int) -> int:
         """ let opt[i] be the number of ways to reach the ith step
                 base: opt[0], opt[1] = 1, 1
-                recursion relation: opt[i] = opt[i-2] + opt[i-1]
-                let one be opt[i-1], let two be opt[i-1]
+                recursion relation: opt[i] = opt[i - 2] + opt[i - 1]
+                let one be opt[i - 1], let two be opt[i - 1]
         """
         
         opt, one, two = 1, 1, 1
