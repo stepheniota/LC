@@ -1,6 +1,5 @@
-'''
-leetcode 226 - invert a binary tree
-'''
+""" Leetcode 226 - invert a binary tree. """
+
 from trees import TreeNode
 
 class Solution:

@@ -1,7 +1,6 @@
-'''
-leetcode 104 - maximum depth of binary tree
-Given the root of a binary tree, return its MAX DEPTH
-'''
+""" leetcode 104 - maximum depth of binary tree
+    Given the root of a binary tree, return its MAX DEPTH
+"""
 from trees import TreeNode
 
 class Solution:
