@@ -8,7 +8,11 @@ from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        # idea: if a contiguous block has a negative sum, throw it away
+        """ idea: if a contiguous block has a negative sum, throw it away
+            let opt[i] be max subarray of nums[:i+1]
+            base: opt[0] = nums[0]
+            recurrence: opt[i] = max(nums[i], opt[i-1], opt[i-1] + nums[i])
+        """
         max_sum = nums[0]
         cur_sum = 0
 
