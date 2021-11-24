@@ -1,16 +1,15 @@
 """ leetcode 104 - maximum depth of binary tree
-    Given the root of a binary tree, return its MAX DEPTH
+
+Given the root of a binary tree, return its maximum depth.
 """
 from trees import TreeNode
 
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
-       # idea: recursive search, base case when node is None then return cur_max
+        if not root: 
+            return 0
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
 
-        def dfs(node: TreeNode, cur_max=0) -> int:
-            if node is None:
-                return cur_max
-            return max(dfs(node.left, cur_max+1), dfs(node.right, cur_max+1))
 
-        return dfs(root)
+
 
